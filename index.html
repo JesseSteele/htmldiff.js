@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>htmldiff</title>
+  </head>
+<body>
+
+<div class="outercard">
+  <div class="row">
+    <div class="col">
+      <h4>Old</h4>
+      <div class="card" id="outputOld"></div>
+    </div>
+    <div class="col">
+      <h4>Diff</h4>
+      <div class="card" id="outputDif"></div>
+    </div>
+    <div class="col">
+      <h4>Current</h4>
+      <div class="card" id="outputCur"></div>
+    </div>
+  </div>
+</div>
+
+<script src="htmldiff.min.js"></script>
+
+<script>
+let oldHTML = `
+It is said code is poetry.<br>
+Just as much poetry is a code!<br>
+Indeed poetry is the Code of Humanity...<br>
+The human code thus programs ideolojee.<br>
+<br>
+(verse one from 'Code of Poetry' https://github.com/inkVerb/401/blob/master/code-of-poetry.txt)
+`;
+let curHTML = `
+It is said, "Code is poetry."<br>
+Just as much, poetry is code!<br>
+Indeed, poetry is the code of humanity;<br>
+The human code thus programs ideology.<br>
+<br>
+(Verse 1 from 'Code of Poetry' https://github.com/inkVerb/401/blob/master/code-of-poetry.txt)
+`;
+let difHTML = htmldiff(oldHTML, curHTML);
+document.getElementById("outputOld").innerHTML = oldHTML;
+document.getElementById("outputCur").innerHTML = curHTML;
+document.getElementById("outputDif").innerHTML = difHTML;
+</script>
+
+</body>
+</html>
